@@ -1,0 +1,138 @@
+from collections import deque
+class Node:
+    def __init__(self,val):
+        self.data = val
+        self.left = None
+        self.right = None
+    
+def in_order(node):
+    if node is None:
+        return
+    in_order(node.left)
+    print(node.data,end=" ")
+    in_order(node.right)
+    
+
+def level_order(node):
+    if node is None:
+        return
+    que = [root]
+    while que:
+        node = que.pop(0)
+        print(node.data,end=" ")
+        if node.left:
+            que.append(node.left)
+        if node.right:
+            que.append(node.right)
+
+def insert(root,key):
+    if root is None:
+        return Node(key)
+    que = [root]
+    while que:
+        temp = que.pop(0)
+        if temp.left is None:
+            temp.left = Node(key)
+            break
+        else:
+            que.append(temp.left)
+
+        if temp.right is None:
+            temp.right = Node(key)
+            break
+        else:
+            que.append(temp.right)
+    return root
+
+def invert_tree(root):
+    if root is None:
+            return root
+    q = deque([root])
+    mq = deque()
+    while q:
+        temp = q.popleft()
+        mq.append(temp)
+        if temp.left:
+            q.append(temp.left)
+        if temp.right:
+            q.append(temp.right)
+    while mq:
+        temp = mq.pop()
+        temp.left,temp.right = temp.right,temp.left
+    return root
+
+
+'''
+root = Node(1)
+root_copy = root
+root.left = Node(2)
+root.right = Node(3)
+root.left.left = Node(4)
+root.left.right = Node(5)
+root.right.left = Node(6)
+root.right.right = Node(7)
+
+print("In order traversal:",end=" ")
+in_order(root)
+
+print("\nIn Pre traversal:",end=" ")
+pre_order(root)
+
+print("\nIn Post traversal:",end=" ")
+post_order(root)
+
+print("\nIn Level order traversal:",end=" ")
+level_order(root)
+print()  # cause the in order traversal uses end=" ", to write in a new line, this print is used.
+
+r = insert(root_copy,8)
+level_order(root)
+
+# check for proper working of code ^
+'''
+
+'''
+root = Node(1)
+root.left = Node(2)
+root.right = Node(3)
+root.left.left = Node(4)
+root.left.right = Node(5)
+root.right.left = Node(6)
+root.left.left.left = Node(8)
+root.left.left.right = Node(9)
+root.left.right.right = Node(10)
+root.right.left.left = Node(11)
+root.right.left.right = Node(12)
+root.right.right = Node(7)
+
+print("before",end=" ")
+in_order(root)
+insert(root,77)
+print("\nafter",end=" ")
+in_order(root)
+print()
+print(searchDFS(root,7))
+print(searchDFS(root,777))
+
+print(searchBFS(root,11))
+print(searchBFS(root,111))
+'''
+
+root = Node(1)
+root.left = Node(2)
+root.right = Node(3)
+root.left.left = Node(4)
+root.left.right = Node(5)
+root.right.left = Node(6)
+root.left.left.left = Node(8)
+root.left.left.right = Node(9)
+root.left.right.right = Node(10)
+root.right.left.left = Node(11)
+root.right.left.right = Node(12)
+root.right.right = Node(7)
+print("before",end=" ")
+level_order(root)
+invert_tree(root)
+print("\nafter",end=" ")
+level_order(root)
+print()

@@ -1,0 +1,5 @@
+print("enter three numbers:")
+a=int(input())
+b=int(input())
+c=int(input())
+print(a," is greater") if a>b and a>c else print(b," is greater") if(b>c) else print(c," is greater")

@@ -1,0 +1,25 @@
+from queue import Queue
+q = Queue(10)
+print(q.qsize())
+q.put(1)
+q.put(2)
+q.put(3)
+q.put(4)
+q.put(5)
+q.put(6)
+q.put(7)
+q.put(8)
+q.put(9)
+q.put(10)
+print(q.empty())
+print(q.full())
+print(q.get())
+print(q.get())
+print(q.get())
+print("get no wait:",q.get_nowait())
+print("size: ",q.qsize())
+q.put_nowait('7')
+print("size: ",q.qsize())
+
+
+# we cannot iterate or display all the elements in the queue

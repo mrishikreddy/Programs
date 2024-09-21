@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>light and dark theme</title>
+    <style>
+        body{
+            transition: background-color 2s ease;
+        }
+        .dark_theme{
+            background-color: black;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <p>Hello World switching between light theme and dark theme</p>
+    <button value="1" style="height:200px; width:200px; margin:20% 40% " onclick="change()">Click to switch between light and dark theme</button>
+    <script>
+        function change()
+        {
+            var element = document.body;
+            element.classList.toggle("dark_theme");
+        }
+    </script>
+
+</body>
+</html>

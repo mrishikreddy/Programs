@@ -1,0 +1,8 @@
+f=open("demo.txt","w")
+l=eval(input("enter"))
+f.writelines(l)
+f.close()
+f=open("demo.txt","r")
+data=f.readlines()
+print(data)
+f.close()

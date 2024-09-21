@@ -1,0 +1,12 @@
+from numpy import *
+arr=array([1,2,3,4,5])
+arr2=array([6,7,8,9,0])
+print("max of array:",max(arr))
+print("min of array:",min(arr))
+print("concatenation of array:",concatenate([arr,arr2]))
+print("sin of array:",sin(arr))
+print("cos of array:",cos(arr))
+print("tan of array:",tan(arr))
+print("log of array:",log(arr))
+print("sqrt of array:",sqrt(arr))
+print("sum of array:",sum(arr))

@@ -1,0 +1,1 @@
+print(eval(input("enter the expression say(2+3):")))

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>weatherAPI</title>
+</head>
+<body>
+    <h1 style="text-align: center">Current temperature in Nalgonda</h1>
+    <h1 id="temp" style="text-align: center;">--</h1>
+
+<script>
+    var temp = document.querySelector("#temp");
+    let url = "https://api.weatherbit.io/v2.0/current?lat=17.0577&lon=79.2684&key=041c333ad42940d7acba6df5c18870ba&include=minutely"
+    
+   getWeather = async ()=>
+    {
+        let reponse = await fetch(url);
+        let data = await reponse.json();
+        console.log(data);
+        console.log(data['data'][0]['app_temp'])
+        temp.innerText = data['minutely'][0]['temp'];
+
+    }
+
+    
+    getWeather();
+</script>
+</body>
+</html>
