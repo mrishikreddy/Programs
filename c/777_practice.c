@@ -1,69 +1,54 @@
-#include<stdio.h>
-#include<stdlib.h>
-#include<string.h>
+#include <limits.h>
+#include <stdbool.h>
+#include <stdio.h>
+#define V 5
 
-struct node{
-    char data;
-    struct node*next;
-};
-struct node*head;
-
-void push(char ch)
+int minKey(int key[], bool mstSet[])
 {
-    struct node*new,*temp;
-    new = (struct node*)malloc(sizeof(struct node));
-    new->data = ch;
-    new->next = NULL;
-    if(head==NULL)
-    {
-        head = new;
-    }
-    else
-    {
-        temp = (struct node*)malloc(sizeof(struct node));
-        temp = head;
-        while(temp->next!=NULL)
-            temp = temp->next;
-        temp->next=new;
-    }
+int min = INT_MAX, min_index;
+for (int v = 0; v < V; v++)
+if (mstSet[v] == false && key[v] < min)
+min = key[v], min_index = v;
+return min_index;
 }
 
-void pop()
+int printMST(int parent[], int graph[V][V])
 {
-    struct node*temp,*prev;
-    char ch;
-    temp = (struct node*)malloc(sizeof(struct node));
-    prev = (struct node*)malloc(sizeof(struct node));
-    while(head!=NULL)
-    {
-        if(head->next==NULL)
-        {   ch = head->data;
-            head=NULL;
-        }
-        else
-        {
-            temp = head;
-            while(temp->next!=NULL)
-            {
-                prev = temp;
-                temp = temp->next;
-            }
-            ch = temp->data;
-            prev->next=NULL;
-        }
-        printf("%c",ch);
-    }
+printf("Edge \tWeight\n");
+for (int i = 1; i < V; i++)
+printf("%d - %d \t%d \n", parent[i], i,
+graph[i][parent[i]]);
+}
 
 
+void primMST(int graph[V][V])
+{
+
+int parent[V];
+
+cut
+int key[V];
+
+bool mstSet[V];
+for (int i = 0; i < V; i++)
+key[i] = INT_MAX, mstSet[i] = false;
+key[0] = 0;
+parent[0] = -1;
+for (int count = 0; count < V - 1; count++) {
+int u = minKey(key, mstSet);
+mstSet[u] = true;
+
+for (int v = 0; v < V; v++)
+if (graph[u][v] && mstSet[v] == false
+&& graph[u][v] < key[v])
+parent[v] = u, key[v] = graph[u][v];
+}
+printMST(parent, graph);
 }
 int main()
 {
-    char s[10],i;
-    printf("enter the string: ");
-    scanf("%s",s);
-    for(i=0;i<strlen(s);i++)
-        push(s[i]);
-    printf("The reverse of the list is: ");
-    pop();
-    return 0;
+int graph[V][V] = { { 0, 2, 0, 6, 0 },{ 2, 0, 3, 8, 5 },{ 0, 3, 0, 0, 7 },
+{ 6, 8, 0, 0, 9 },{ 0, 5, 7, 9, 0 } };
+primMST(graph);
+return 0;
 }
