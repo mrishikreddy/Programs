@@ -1,5 +1,5 @@
 /* in eventHandling this keyword gives the value undefined if directly used so eventBinding is used 
-it can be solved by four methods */ 
+it can be solved by Three methods */ 
 
 import React, { Component } from 'react'
 

@@ -1,4 +1,4 @@
-/* conditional rendering gives elemnet based on conditions */
+/* conditional rendering gives element based on conditions */
 import React, { Component } from 'react'
 
 export class UserGreetings extends Component {
