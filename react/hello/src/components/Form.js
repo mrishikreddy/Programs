@@ -12,7 +12,7 @@ class From extends Component {
       }
     }
 
-    handleUsernameChange = (event) =>{     // when you pass a function to handler the unchaged event itself is passed as a parameter
+    handleUsernameChange = (event) =>{     // when you pass a function to handler the unchanged event itself is passed as a parameter
         this.setState({
             username : event.target.value  // changing the username as it should be shown in text bar when user enters something
         })

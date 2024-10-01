@@ -1,5 +1,5 @@
 import React from 'react'
-const primary ={                    // Note,here css hi applied in the form of object objects and also follow camelCasing 
+const primary ={                    // Note,here css hi applied in the form of object and also follow camelCasing 
     fontSize : '72px',             // for the property names in CSS
     color: 'blue'
 }
