@@ -1,6 +1,6 @@
 let arr = [1,2,3,4,5];
 let [a,b,c,d,e] = arr;
-console.log(`here are the values of individual varialbea:${a} b:${b} c:${c} d:${d} e:${e}`);
+console.log(`here are the values of individual varialbes a:${a} b:${b} c:${c} d:${d} e:${e}`);
 let [p,q,r,,s] = arr;
 console.log(`p:${p} q:${q} r:${r} s${s}`);
 

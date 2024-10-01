@@ -1,4 +1,4 @@
-let m = new Map([[1,'arun'],[2,'rupesh'],[3,'doctor'], [4,'police']]);
+let m = new Map([[1,'varun'],[2,'rupesh'],[3,'doctor'], [4,'police']]);
 console.log(m);
 m.set(5,'security');
 console.log(m.keys());
