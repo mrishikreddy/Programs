@@ -6,7 +6,7 @@ function HookCounterFour() {
 const addItem = ()=>
 {
     setitems([
-        ...items,{                                // here Apart from the previous object objects, can you object object is added
+        ...items,{                                // here Apart from the previous object objects, object is added
             id: items.length,                     // which consist of two attributes id and value, spread off is used to fetch previous items
             value : Math.floor(Math.random() * 10) + 1      // if you do not use Operator, the previous object, the items Will be earsed
         }
