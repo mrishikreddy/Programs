@@ -14,7 +14,7 @@ const addItem = ()=>
 }
 
 
-/*  if you want to implement without using Arrow Function, You can also improvement like this:
+/*  if you want to implement without using Arrow Function, You can also do like this:
 function addItem()
 {
     setitems([
