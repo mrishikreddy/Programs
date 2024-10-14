@@ -34,9 +34,5 @@ class out
         {
             System.out.println(arr[i].rollno+" "+arr[i].name+" "+arr[i].section);
         }
-         
-
-
-
     }
 }

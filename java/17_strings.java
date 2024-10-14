@@ -12,7 +12,5 @@ class out
         System.out.println(str.concat("class"));
         System.out.println(str.concat(ref));
         
-
-
     }
 }
