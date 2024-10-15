@@ -1,26 +1,34 @@
 #include<stdio.h>
 int main()
 {
-    int i,j,size,a[20],temp;
-    printf("enter the number of elements:");
+    int arr[10],i,j,temp,size,flag;
+    printf("enter the size of array: ");
     scanf("%d",&size);
-    printf("enter the %d elements:",size);
+    printf("enter %d elements: ",size);
     for(i=0;i<size;i++)
-    scanf("%d",&a[i]);
-    printf("elements before sorting:");
-    for(i=0;i<size;i++)
-    printf("%d ",a[i]);
+        scanf("%d",&arr[i]);
+
     for(i=0;i<size-1;i++)
-    {for(j=0;j<size-i-1;j++)
-       if(a[j]>a[j+1])
-       {
-            temp=a[j+1];
-            a[j+1]=a[j];
-            a[j]=temp;
-       }              
+    {
+        flag=0;
+        for(j=0;j<size-i-1;j++)
+        {
+            if(arr[j]>arr[j+1])
+            {
+                flag = 1;
+                temp = arr[j];
+                arr[j] = arr[j+1];
+                arr[j+1] = temp; 
+            }
+        }
+
+        if(flag==0)
+        break;
     }
-    printf("\nafter sorting the elements are:");
+
+    printf("The sorted array is: ");
     for(i=0;i<size;i++)
-    printf("%d ",a[i]);
+        printf("%d ",arr[i]);
+
     return 0;
 }
