@@ -4,7 +4,7 @@ class out
     {
         int num = 7;
         Integer num1 = num;     // autoBoxing   Actual code : Integer num1 = new Integer(num1);
-        int num2 = num1;        // autoUnBoxing Actual code : int num2 =num1.intValue();
+        int num2 = num1;        // UnBoxing Actual code : int num2 = num1.intValue();
         System.out.println(num2);
 
         String str = "12";
