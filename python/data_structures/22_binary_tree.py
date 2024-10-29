@@ -113,9 +113,9 @@ def deleteNode(root,val):
 
     target.data = last_node.data
     if last_parent:
-        if last_parent.left:
+        if last_parent.left == last_node:
             last_parent.left = None
-        else:
+        elif last_parent.right == last_node:
             last_parent.right = None
     else:
         return None
@@ -125,12 +125,12 @@ def maxDepth(node):
     if node is None:
         return 0
     
-    maxDepth(node.left)
-    maxDepth(node.right)
+    lDepth = maxDepth(node.left)
+    rDepth = maxDepth(node.right)
 
     return max(lDepth,rDepth) +1
 
-def 
+
 
 
 '''
@@ -189,6 +189,7 @@ print(searchBFS(root,11))
 print(searchBFS(root,111))
 '''
 
+
 root = Node(1)
 root.left = Node(2)
 root.right = Node(3)
@@ -207,3 +208,4 @@ deleteNode(root,8)
 print("\nafter",end=" ")
 level_order(root)
 print()
+print(maxDepth(root))

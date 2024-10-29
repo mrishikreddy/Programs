@@ -1,54 +1,16 @@
 from collections import deque
+
 class Node:
-    def __init__(self,data):
-        self.data = data
+    def __init__(self,val):
+        self.data = val
         self.left = None
         self.right = None
-    
-def search(root,val):
-    if root is None:
-        print("value not found")
-        return None
-    if root.data==val:
-        print("value found")
-        return root
-    if val<root.data:
-        search(root.left)
-    else:
-        search(root.right)
 
-def insert(root,val):
-    if root is None:
-        return Node(val)
-    if root.data == val:
-        print("value already present in tree")
-        return node
-    if root.data<val:
-        root.right = insert(root.right,val)
-    else:
-        root.left = insert(root.left,val)
-    return root 
-
-def insert_by_iteration(root,val):
-    temp = root
-    while temp:
-        prev = temp
-        if temp.data==val:
-            print("value already present in the list")
-            return root
-        if val<temp.data:
-            temp = temp.left
-        else:
-            temp = temp.right
-    if val<prev.data:
-        prev.left = Node(val)
-    else:
-        prev.right = Node(val)
-    return root
-
-
-def level_order(root):
-    q = deque([root])
+def traverse(node):
+    if node is None:
+        print("The tree is empty")
+        return ""
+    q = deque([node])
     while q:
         temp = q.popleft()
         print(temp.data,end=" ")
@@ -56,13 +18,44 @@ def level_order(root):
             q.append(temp.left)
         if temp.right:
             q.append(temp.right)
+    print()
+    
+def search(node,val):
+    if node is None or node.data==val:
+        return node  
+    if node.data>val:
+        return search(node.left,val)
+    else:
+        return search(node.right,val)
 
-root = Node(10)
-r = insert(root,9)
-r = insert(r,14)
-r = insert(r,7)
-r = insert(r,8)
-r = insert(r,12)
-r = insert(r,15)
-level_order(r)
-print(search(r,7))
+def insert(node,val):
+    if node is None:
+        return Node(val)
+    if node.data == val:
+        print("Duplicate values are not accepted in Binary Search Tree") 
+    elif node.data>val:
+        node.left = insert(node.left,val)
+    else:
+        node.right = insert(node.right,val)
+    return node
+
+
+root = Node(4)
+root.left = Node(2)
+root.right = Node(6)
+root.left.left = Node(1)
+root.left.right = Node(3)
+root.right.left = Node(5)
+root.right.right = Node(7)
+traverse(root)
+print(search(root,4).data)
+
+root = None
+root = insert(root,4)
+insert(root,2)
+insert(root,6)
+insert(root,1)
+insert(root,3)
+insert(root,5)
+insert(root,7)
+traverse(root)
