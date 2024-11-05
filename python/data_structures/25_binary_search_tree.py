@@ -6,7 +6,7 @@ class Node:
         self.left = None
         self.right = None
 
-def traverse(node):
+def traverse_bfs(node):
     if node is None:
         print("The tree is empty")
         return ""
@@ -19,6 +19,27 @@ def traverse(node):
         if temp.right:
             q.append(temp.right)
     print()
+
+def inorderTraverse(node):
+    if node is None:
+        return
+    inorderTraverse(node.left)
+    print(node.data,end=" ")
+    inorderTraverse(node.right)
+
+def preorderTraverse(node):
+    if node is None:
+        return
+    print(node.data,end=" ")
+    preorderTraverse(node.left)
+    preorderTraverse(node.right)
+
+def postorderTraverse(node):
+    if node is None:
+        return
+    postorderTraverse(node.left)
+    postorderTraverse(node.right)
+    print(node.data,end=" ")
     
 def search(node,val):
     if node is None or node.data==val:
@@ -47,7 +68,9 @@ root.left.left = Node(1)
 root.left.right = Node(3)
 root.right.left = Node(5)
 root.right.right = Node(7)
-traverse(root)
+traverse_bfs(root)
+
+"""
 print(search(root,4).data)
 
 root = None
@@ -59,3 +82,10 @@ insert(root,3)
 insert(root,5)
 insert(root,7)
 traverse(root)
+"""
+
+inorderTraverse(root)
+print("")
+preorderTraverse(root)
+print("")
+postorderTraverse(root)
