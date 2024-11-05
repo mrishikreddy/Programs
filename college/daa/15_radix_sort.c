@@ -37,7 +37,7 @@ void radixSort(int arr[size])
    while(max/expp>=1)
    {
        countSort(arr,expp);
-       expp += 10;
+       expp *= 10;
    }
 }
 
@@ -52,7 +52,5 @@ int main()
     radixSort(arr);
     for(i=0;i<size;i++)
         printf("%d\n",arr[i]);
-    
-    
-    
+    return 0;   
 }
