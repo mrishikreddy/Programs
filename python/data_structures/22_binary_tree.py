@@ -130,7 +130,40 @@ def maxDepth(node):
 
     return max(lDepth,rDepth) +1
 
+def findMaxValue(root):
+    if root is None:
+        return 0
+    leftMax=rightMax=0
+    if root.left is not None:
+        leftMax = findMaxValue(root.left)
+    if root.right is not None:
+        rightMax = findMaxValue(root.right)
+    return max(leftMax,rightMax,root.data)
 
+# The methods MaxValue, and MinValue are used for method isBST, The similar methods findMax
+# and findMin will not work when the tree is not BST, so we use the traditional approach
+
+def maxValue(root):
+    if root is None:
+        return float('-inf')
+    return max(root.data,maxValue(root.left),maxValue(root.right))
+
+def minValue(root):
+    if root is None:
+        return float('inf')
+    return min(root.data,minValue(root.left),minValue(root.right))
+
+def isBST(root):
+    if root is None:
+        return True
+    
+    if root.left and maxValue(root.left)>=root.data:
+        return False
+    
+    if root.right and minValue(root.right)<=root.data:
+        return False
+    
+    return isBST(root.left) and isBST(root.right)
 
 
 '''
@@ -209,3 +242,5 @@ print("\nafter",end=" ")
 level_order(root)
 print()
 print(maxDepth(root))
+print(findMaxValue(root))
+print(isBST(root))
