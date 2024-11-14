@@ -20,6 +20,7 @@ class out
 
         System.out.println("\nafter changing one instance of varaible in class");
         System.out.println(var1.num+" "+var2.num);
+        
 
     }
 }
