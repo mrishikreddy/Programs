@@ -8,7 +8,7 @@ class out
 {
     public static void main(String args[])
     {
-        A obj =i -> 
+        A obj = i -> 
             {
                 System.out.println("In show "+i);
             };
