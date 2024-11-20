@@ -21,15 +21,14 @@ class FileDemo
             i++;
         }
         fw.close();
-
         FileReader fr = new FileReader("studentData.txt");
-        int c=1;
-        while((c = fr.read())!=-1)
-        {
-            System.out.print((char)c);
+        Scanner scf = new Scanner(fr);
+
+        while(scf.hasNextLine())
+        System.out.println(scf.nextLine());
+        
         }
-        }
-        catch(Exception e)
+        catch(IOException e)
         {
             System.out.println(e);
         }
