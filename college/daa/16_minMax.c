@@ -12,7 +12,7 @@ struct pair min_max(int arr[],int low,int high)
         minMax.max = arr[low];
         return minMax;
     }
-    else if(low==high+1)
+    else if(low+1==high)
     {
         if(arr[low]<arr[high])
         {
