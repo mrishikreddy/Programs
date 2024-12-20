@@ -1,25 +1,19 @@
-def quick_sort(arr,first,last):
+def qs(arr,first,last):
     if first<last:
+        i = first+1
         p = first
-        i = first
         j = last
-
         while i<=j:
-            while arr[p]>=arr[i] and i<=j:
+            while i<=j and arr[i]<=arr[p]:
                 i+=1
-            while arr[p]<arr[j] and i<=j:
+            while i<=j and arr[j]>arr[p]:
                 j-=1
-            if i<j and arr[i]>arr[j]:
+            if i<j:
                 arr[i],arr[j] = arr[j],arr[i]
-        if i>j:
-            arr[p],arr[j] = arr[j],arr[p]
-        quick_sort(arr,first,j-1)
-        quick_sort(arr,j+1,last)
+        arr[j],arr[p] = arr[p],arr[j]
+        qs(arr,first,j-1)
+        qs(arr,j+1,last)
 
-arr = list(map(int,input("enter the numbers:").split()))
-# to sort strings:
-#arr = input("enter the numbers or strings:").split()
-
-quick_sort(arr,0,len(arr)-1)
-for i in arr:
-    print(i,end=" ")
+l = list(map(int,input("enter the numbers: ").split(" ")))
+qs(l,0,len(l)-1)
+print(l)
