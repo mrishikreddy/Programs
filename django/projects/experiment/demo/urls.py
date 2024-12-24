@@ -19,5 +19,7 @@ from django.urls import path,include
 
 urlpatterns = [
     path('',include('calc.urls')),
+    path('cbexp',include('cbexp.urls')),
     path('admin/', admin.site.urls),
+    
 ]
